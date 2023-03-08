@@ -1,0 +1,26 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-6">
+          <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div>
+      </div>      
+        <div class="row justify-content-center mt-5">
+          <% for(let i=0;i< user.likedGames.length;i++){ %>            
+            <div> <a href="/games/<%= user.likedGames[i].name %>" >   <%= user.likedGames[i].name %>  </a> 
+            <img src="<%= user.likedGames[i].picture %>"" width="200" height="200 "> <%= user.likedGames[i].sumOfVotes %> 
+            <form action="/games/removeFromFavorites/<%= user.likedGames[i].name%>?_method=PUT" method="POST" id="games[i].name">
+              <button type="submit" class="btn btn-sm btn-info" name="something"><i class="fa fa-check"></i>Remove from favorites</button>
+            </form>
+            
+            </div>
+            <% } %>
+        </div>  
+      </div>  
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>

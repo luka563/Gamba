@@ -1,0 +1,25 @@
+<%- include('./partials/header') -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ALL GAMES HERE
+    <div>
+        <% for(let i=0;i < games.length ;i++){ %>
+            <div> <a href="/games/<%= games[i].name %>" >   <%= games[i].name %>  </a> 
+            <img src="<%= games[i].picture %>"" width="200" height="200 "> <%= games[i].sumOfVotes %> 
+
+            <form action="games/addToFavorites/<%= games[i].name%>?_method=PUT" method="POST" id="games[i].name">
+                <button type="submit" class="btn btn-sm btn-info" name="something"><i class="fa fa-check"></i>Add to favorites</button>
+            </form>
+            </div>
+            <% } %>
+    </div> 
+        
+</body>
+</html>

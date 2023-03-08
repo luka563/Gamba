@@ -1,0 +1,1 @@
+games view page not implemented
